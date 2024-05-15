@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ar.bootcampJava</groupId>
-	<artifactId>ApiMilesProgram</artifactId>
+	<artifactId>ApiAirportManager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ApiMilesProgram</name>
-	<description>Project Api Miles Program</description>
+	<name>ApiAirportManager</name>
+	<description>Project Api Airport Manager</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.1</spring-cloud.version>
