@@ -6,7 +6,7 @@ TP FINAL MICROSERVICIOS PARA CODEKI BOOTCAMP JAVA.
 
 -ApiAirportManager: Crea Arribos y Salidas en un aeropuerto, tomando info de ApiFlights y asignando una puerta de embarque/desembarque y el estado del vuelo.
 
-TO DO: Tests en general.
+TO DO: Tests, Security...
 
 *********
 
