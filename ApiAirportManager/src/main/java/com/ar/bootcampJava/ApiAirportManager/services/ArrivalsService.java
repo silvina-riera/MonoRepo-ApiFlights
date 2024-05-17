@@ -24,34 +24,34 @@ public class ArrivalsService {
         return arrivalsRepository.findAll();
     }
 
-    public void createArrival(Long flight_id, Arrivals arrival) {
+    public void createArrival(Long flightId, Arrivals arrival) {
 
-        FlightsDto flight = flightsClient.getFlightById(flight_id);
+        FlightsDto flight = flightsClient.getFlightById(flightId);
 
-        arrival.setFlight_id(flight.getId());
+        arrival.setFlightId(flight.getId());
         arrival.setOrigin(flight.getOrigin());
         arrival.setArrivalDateTime(flight.getArrivalDateTime());
         arrival.setCompany(flight.getCompany().getName());
 
         arrivalsRepository.save(arrival);}
 
-    public Optional<Arrivals> getArrivalById(Long arrival_id) {
-        return arrivalsRepository.findById(arrival_id);
+    public Optional<Arrivals> getArrivalById(Long arrivalId) {
+        return arrivalsRepository.findById(arrivalId);
     }
 
-    public String deleteArrival(Long arrival_id){
-        if (arrivalsRepository.existsById(arrival_id)){
-            arrivalsRepository.deleteById(arrival_id);
-            return "El arribo con id: " + arrival_id + " ha sido eliminado";
+    public String deleteArrival(Long arrivalId){
+        if (arrivalsRepository.existsById(arrivalId)){
+            arrivalsRepository.deleteById(arrivalId);
+            return "El arribo con id: " + arrivalId + " ha sido eliminado";
         } else {
             throw new ResourceNotExistsException("El arribo a eliminar elegido no existe");
         }
 
     }
 
-    public Arrivals updateArrival(Long arrival_id, Arrivals arrival) {
-        if (arrivalsRepository.existsById(arrival_id)){
-            Arrivals arrivalToModify = arrivalsRepository.findById(arrival_id).get();
+    public Arrivals updateArrival(Long arrivalId, Arrivals arrival) {
+        if (arrivalsRepository.existsById(arrivalId)){
+            Arrivals arrivalToModify = arrivalsRepository.findById(arrivalId).get();
 
             if (arrival.getArrivalDateTime() != null){
                 arrivalToModify.setArrivalDateTime(arrival.getArrivalDateTime());

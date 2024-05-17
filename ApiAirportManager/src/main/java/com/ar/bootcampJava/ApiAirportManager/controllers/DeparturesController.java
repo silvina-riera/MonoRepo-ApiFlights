@@ -21,22 +21,22 @@ public class DeparturesController {
         return departuresService.getDepartures();
     }
 
-    @GetMapping(value = "/search/{departure_id}")
-    public Optional<Departures> getDepartureById(@PathVariable Long departure_id){
-        return departuresService.getDepartureById(departure_id);
+    @GetMapping(value = "/search/{departureId}")
+    public Optional<Departures> getDepartureById(@PathVariable Long departureId){
+        return departuresService.getDepartureById(departureId);
     }
-    @PostMapping(value = "/create/{flight_id}")
-    public void createDeparture(@PathVariable Long flight_id, @RequestBody Departures departure){
-        departuresService.createDeparture(flight_id, departure);
+    @PostMapping(value = "/create/{flightId}")
+    public void createDeparture(@PathVariable Long flightId, @RequestBody Departures departure){
+        departuresService.createDeparture(flightId, departure);
     }
 
-    @PutMapping(value = "/update/{departure_id}")
-    public Departures updateDeparture(@PathVariable Long departure_id, @RequestBody Departures departure){
-        return departuresService.updateDeparture(departure_id, departure);
+    @PutMapping(value = "/update/{departureId}")
+    public Departures updateDeparture(@PathVariable Long departureId, @RequestBody Departures departure){
+        return departuresService.updateDeparture(departureId, departure);
     }
-    @DeleteMapping(value = "/delete/{departure_id}")
-    public void deleteDeparture(@PathVariable Long departure_id){
-        departuresService.deleteDeparture(departure_id);
+    @DeleteMapping(value = "/delete/{departureId}")
+    public void deleteDeparture(@PathVariable Long departureId){
+        departuresService.deleteDeparture(departureId);
     }
 
     @GetMapping("/search/byDestination")

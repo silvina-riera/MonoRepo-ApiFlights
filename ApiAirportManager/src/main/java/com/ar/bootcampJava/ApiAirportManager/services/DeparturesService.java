@@ -25,34 +25,34 @@ public class DeparturesService {
         return departuresRepository.findAll();
     }
 
-    public void createDeparture(Long flight_id, Departures departure) {
+    public void createDeparture(Long flightId, Departures departure) {
 
-        FlightsDto flight = flightsClient.getFlightById(flight_id);
+        FlightsDto flight = flightsClient.getFlightById(flightId);
 
-        departure.setFlight_id(flight.getId());
+        departure.setFlightId(flight.getId());
         departure.setDestination(flight.getDestination());
         departure.setDepartureDateTime(flight.getDepartureDateTime());
         departure.setCompany(flight.getCompany().getName());
 
         departuresRepository.save(departure);}
 
-    public Optional<Departures> getDepartureById(Long departure_id) {
-        return departuresRepository.findById(departure_id);
+    public Optional<Departures> getDepartureById(Long departureId) {
+        return departuresRepository.findById(departureId);
     }
 
-    public String deleteDeparture(Long departure_id){
-        if (departuresRepository.existsById(departure_id)){
-            departuresRepository.deleteById(departure_id);
-            return "La partida con id: " + departure_id + " ha sido eliminada";
+    public String deleteDeparture(Long departureId){
+        if (departuresRepository.existsById(departureId)){
+            departuresRepository.deleteById(departureId);
+            return "La partida con id: " + departureId + " ha sido eliminada";
         } else {
             throw new ResourceNotExistsException("La partida a eliminar elegida no existe");
         }
 
     }
 
-    public Departures updateDeparture(Long departure_id, Departures departure) {
-        if (departuresRepository.existsById(departure_id)){
-            Departures departureToModify = departuresRepository.findById(departure_id).get();
+    public Departures updateDeparture(Long departureId, Departures departure) {
+        if (departuresRepository.existsById(departureId)){
+            Departures departureToModify = departuresRepository.findById(departureId).get();
 
             if (departure.getDepartureDateTime() != null){
                 departureToModify.setDepartureDateTime(departure.getDepartureDateTime());

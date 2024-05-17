@@ -20,22 +20,22 @@ public class ArrivalsController {
         return arrivalsService.getArrivals();
     }
 
-    @GetMapping(value = "/search/{arrival_id}")
-    public Optional<Arrivals> getArrivalById(@PathVariable Long arrival_id){
-        return arrivalsService.getArrivalById(arrival_id);
+    @GetMapping(value = "/search/{arrivalId}")
+    public Optional<Arrivals> getArrivalById(@PathVariable Long arrivalId){
+        return arrivalsService.getArrivalById(arrivalId);
     }
-    @PostMapping(value = "/create/{flight_id}")
-    public void createArrival(@PathVariable Long flight_id, @RequestBody Arrivals arrival){
-        arrivalsService.createArrival(flight_id, arrival);
+    @PostMapping(value = "/create/{flightId}")
+    public void createArrival(@PathVariable Long flightId, @RequestBody Arrivals arrival){
+        arrivalsService.createArrival(flightId, arrival);
     }
 
-    @PutMapping(value = "/update/{arrival_id}")
-    public Arrivals updateArrival(@PathVariable Long arrival_id, @RequestBody Arrivals arrival){
-        return arrivalsService.updateArrival(arrival_id, arrival);
+    @PutMapping(value = "/update/{arrivalId}")
+    public Arrivals updateArrival(@PathVariable Long arrivalId, @RequestBody Arrivals arrival){
+        return arrivalsService.updateArrival(arrivalId, arrival);
     }
-    @DeleteMapping(value = "/delete/{arrival_id}")
-    public void deleteArrival(@PathVariable Long arrival_id){
-        arrivalsService.deleteArrival(arrival_id);
+    @DeleteMapping(value = "/delete/{arrivalId}")
+    public void deleteArrival(@PathVariable Long arrivalId){
+        arrivalsService.deleteArrival(arrivalId);
     }
 
     @GetMapping("/search/byOrigin")

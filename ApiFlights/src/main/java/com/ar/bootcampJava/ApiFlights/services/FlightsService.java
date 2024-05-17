@@ -94,8 +94,8 @@ public class FlightsService {
         return flightsDtoCollector(flightsList);
     }
 
-    public  List<FlightsDto> getByCompany(Companies company_id){
-        List<Flights> flightsList = flightsRepository.findByCompany(company_id);
+    public  List<FlightsDto> getByCompany(Companies companyId){
+        List<Flights> flightsList = flightsRepository.findByCompany(companyId);
         return flightsDtoCollector(flightsList);
     }
 

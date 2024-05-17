@@ -22,8 +22,8 @@ public class FlightsController {
         return flightsClient.getFlights();
     }
 
-    @GetMapping(value = "/search/{flight_id}")
-    public FlightsDto getFlightById(@PathVariable Long flight_id){
-        return flightsClient.getFlightById(flight_id);
+    @GetMapping(value = "/search/{flightId}")
+    public FlightsDto getFlightById(@PathVariable Long flightId){
+        return flightsClient.getFlightById(flightId);
     }
 }

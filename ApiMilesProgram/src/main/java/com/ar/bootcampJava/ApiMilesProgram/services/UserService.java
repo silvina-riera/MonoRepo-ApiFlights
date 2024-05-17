@@ -34,23 +34,23 @@ public class UserService {
 
         userRepository.save(user);}
 
-    public Optional<User> getUserById(Long user_id) {
-        return userRepository.findById(user_id);
+    public Optional<User> getUserById(Long userId) {
+        return userRepository.findById(userId);
     }
 
-    public String deleteUser(Long user_id){
-        if (userRepository.existsById(user_id)){
-            userRepository.deleteById(user_id);
-            return "El usuario con id: " + user_id + " ha sido eliminado";
+    public String deleteUser(Long userId){
+        if (userRepository.existsById(userId)){
+            userRepository.deleteById(userId);
+            return "El usuario con id: " + userId + " ha sido eliminado";
         } else {
             throw new ResourceNotExistsException("El usuario a eliminar elegido no existe");
         }
 
     }
 
-    public User updateUser(Long user_id, User user) {
-        if (userRepository.existsById(user_id)){
-            User userToModify = userRepository.findById(user_id).get();
+    public User updateUser(Long userId, User user) {
+        if (userRepository.existsById(userId)){
+            User userToModify = userRepository.findById(userId).get();
 
             if (user.getPassengerName() != null){
                 userToModify.setPassengerName(user.getPassengerName());
@@ -76,11 +76,11 @@ public class UserService {
         return null;
     }
 
-    public User addPoints(Long user_id, Long flight_id) {
+    public User addPoints(Long userId, Long flightId) {
 
-        User user = this.getUserById(user_id).get();
+        User user = this.getUserById(userId).get();
 
-        FlightsDto flight = flightsClient.getFlightById(flight_id);
+        FlightsDto flight = flightsClient.getFlightById(flightId);
 
         user.setPoints(user.getPoints().add(BigDecimal.valueOf(userUtils.getPointsEarned(flight.getConvertedPrice()))));
 
@@ -89,11 +89,11 @@ public class UserService {
         return userModified;
     }
 
-    public User subtractPoints(Long user_id, Long flight_id) {
+    public User subtractPoints(Long userId, Long flightId) {
 
-        User user = this.getUserById(user_id).get();
+        User user = this.getUserById(userId).get();
 
-        FlightsDto flight = flightsClient.getFlightById(flight_id);
+        FlightsDto flight = flightsClient.getFlightById(flightId);
 
         if(user.getPoints().subtract(BigDecimal.valueOf(flight.getConvertedPrice())).compareTo(BigDecimal.ZERO)>0) {
         user.setPoints(user.getPoints().subtract(BigDecimal.valueOf(flight.getConvertedPrice())));

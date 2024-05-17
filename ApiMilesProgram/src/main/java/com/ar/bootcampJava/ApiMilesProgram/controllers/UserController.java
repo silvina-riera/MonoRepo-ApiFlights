@@ -30,36 +30,36 @@ public class UserController {
         return flightsClient.getFlights();
     }
 
-    @GetMapping(value = "/flights/search/{flight_id}")
-    public FlightsDto getFlightById(@PathVariable Long flight_id){
-        return flightsClient.getFlightById(flight_id);
+    @GetMapping(value = "/flights/search/{flightId}")
+    public FlightsDto getFlightById(@PathVariable Long flightId){
+        return flightsClient.getFlightById(flightId);
     }
 
-    @GetMapping(value = "/search/{user_id}")
-    public Optional<User> getUserById(@PathVariable Long user_id){
-        return userService.getUserById(user_id);
+    @GetMapping(value = "/search/{userId}")
+    public Optional<User> getUserById(@PathVariable Long userId){
+        return userService.getUserById(userId);
     }
     @PostMapping(value = "/create")
     public void createUser(@RequestBody User user){
         userService.createUser(user);
     }
 
-    @PutMapping(value = "/update/{user_id}")
-    public User updateUser(@PathVariable Long user_id, @RequestBody User user){
-        return userService.updateUser(user_id, user);
+    @PutMapping(value = "/update/{userId}")
+    public User updateUser(@PathVariable Long userId, @RequestBody User user){
+        return userService.updateUser(userId, user);
     }
-    @DeleteMapping(value = "/delete/{user_id}")
-    public void deleteUser(@PathVariable Long user_id){
-        userService.deleteUser(user_id);
+    @DeleteMapping(value = "/delete/{userId}")
+    public void deleteUser(@PathVariable Long userId){
+        userService.deleteUser(userId);
     }
 
     @PutMapping("/add/flightPoints")
-    public User addPoints(@RequestParam Long user_id, @RequestParam Long flight_id) {
-        return userService.addPoints(user_id, flight_id);
+    public User addPoints(@RequestParam Long userId, @RequestParam Long flightId) {
+        return userService.addPoints(userId, flightId);
     }
 
     @PutMapping("/subtract/flightPoints")
-    public User subtractPoints(@RequestParam Long user_id, @RequestParam Long flight_id) {
-        return userService.subtractPoints(user_id, flight_id);
+    public User subtractPoints(@RequestParam Long userId, @RequestParam Long flightId) {
+        return userService.subtractPoints(userId, flightId);
     }
 }

@@ -52,8 +52,8 @@ public class FlightsController {
     public List<FlightsDto> getFlightsByTrip(@RequestParam String origin, @RequestParam String destination) {
         return flightsService.getByOriginAndDestination(origin, destination);
     }
-    @GetMapping("search/byCompany/{company_id}")
-    public List<FlightsDto> getFlightsByCompany(@PathVariable Companies company_id) {
-        return flightsService.getByCompany(company_id);
+    @GetMapping("search/byCompany/{companyId}")
+    public List<FlightsDto> getFlightsByCompany(@PathVariable Companies companyId) {
+        return flightsService.getByCompany(companyId);
     }
 }
