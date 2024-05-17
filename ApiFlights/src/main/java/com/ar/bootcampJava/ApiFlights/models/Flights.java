@@ -37,7 +37,7 @@ public class Flights {
 
     @NotNull(message = "Debe ingresar el ID de la compania.")
     @ManyToOne
-    @JoinColumn(name = "companyId")
+    @JoinColumn(name = "company_id")
     private Companies company;
     //Formato del Json: company: {id: }
 
